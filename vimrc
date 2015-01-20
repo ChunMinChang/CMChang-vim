@@ -17,6 +17,16 @@ set expandtab
 " show line number
 set number
 
+" Searching is not case sensitive
+set ignorecase
+
+" resize vertical split window
+nmap <C-Left> <C-W><
+nmap <C-Right> <C-W>>
+" resize horzontal split window
+nmap <C-Up> <C-W>+
+nmap <C-Down> <C-W>-
+
 " =================================
 " Color Scheme
 " =================================
