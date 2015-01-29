@@ -1,16 +1,19 @@
 #!/bin/bash
 
-# install the vim
+USER_HOME=$(eval echo ~${USER})
+echo "Go home directory: $USER_HOME"
+# $HOME could be changed by user
+cd $USER_HOME
+
+# Install the vim
 sudo apt-get install vim
 
-# Create a folder
-sudo mkdir ~/.vim/templates
+# Install NeoBundle
+$ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 
-# Pathogen
-sudo mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+# Clone my vim folder
+#git clone https://github.com/ChunMinChang/CMChang-vim.git
 
-# vim-sensible
-cd ~/.vim/bundle && \
-  git clone git://github.com/tpope/vim-sensible.git
-
+# symlink to vim and vimrc
+cd CMChang-vim
+#ln -s cmc-vim $(HOME)
