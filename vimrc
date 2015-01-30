@@ -83,6 +83,7 @@
  \ 'build' : {
  \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
  \     'unix' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+ \     'linux' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
  \     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
  \     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
  \    }

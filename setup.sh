@@ -1,9 +1,12 @@
 #!/bin/bash
 
 USER_HOME=$(eval echo ~${USER})
-CMC_VIM=CMChang-vim
-CMC_VIM_DIR=$USER_HOME/$CMC_VIM
+CMC_VIM_GIT=CMChang-vim
+CMC_VIM=$USER_HOME/$CMC_VIM_GIT/cmc-vim
+CMC_VIMRC=$USER_HOME/$CMC_VIM_GIT/vimrc
 
+ORI_VIM=$USER_HOME/.vim
+ORI_VIMRC=$USER_HOME/.vimrc
 
 echo "Go home directory: $USER_HOME"
 # $HOME could be changed by user
@@ -15,11 +18,15 @@ sudo apt-get install vim
 
 echo "Installing NeoBundle...."
 # Install NeoBundle
-$ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 
 echo "Cloning CMChang-vim...."
 # Clone my vim folder
 git clone https://github.com/ChunMinChang/CMChang-vim.git
 
-# symlink to vim and vimrc
-#ln -s cmc-vim $(HOME)
+# symlink to vimrc
+ln -s $CMC_VIMRC $ORI_VIMRC
+
+# symlink to vim
+ln -s $CMC_VIM/templates $ORI_VIM/templates
+ln -s $CMC_VIM/colors $ORI_VIM/colors
