@@ -36,7 +36,7 @@
  " | Syntax highlighting |
  " +---------------------+
  " colorscheme
- NeoBundle 'yearofmoo/Vim-Darkmate'
+ "NeoBundle 'yearofmoo/Vim-Darkmate'
 
  " html5
  NeoBundle 'othree/html5.vim'
