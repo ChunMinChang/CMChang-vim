@@ -8,13 +8,38 @@ CMC_VIMRC=$USER_HOME/$CMC_VIM_GIT/vimrc
 ORI_VIM=$USER_HOME/.vim
 ORI_VIMRC=$USER_HOME/.vimrc
 
+BKP_VIM=$USER_HOME/vim-backup
+BKP_VIMRC=$USER_HOME/vimrc-backup
+
 echo "Go home directory: $USER_HOME"
 # $HOME could be changed by user
 cd $USER_HOME
 
+# Check the vim
 echo "Installing vim...."
-# Install the vim
-sudo apt-get install vim
+if which vim > /dev/null; then
+    echo "vim already exists!"
+else
+    echo "vim not found! Installing it now..."
+    # Install the vim
+    sudo apt-get install vim
+fi
+
+# Check the directory .vim
+if [ -d $ORI_VIM  ]; then
+  echo "Directory .vim exists! Now backup this folder to $BKP_VIM"
+  mv $ORI_VIM $BKP_VIM
+else
+  echo "Directory .vim not found!"
+fi
+
+# Check the vim settinh file .vimrc
+if [ -f $ORI_VIMRC  ]; then
+  echo "vim setting file .vimrc exists! Now backup this file to $BKP_VIMRC"
+  mv $ORI_VIMRC $BKP_VIMRC
+else
+  echo "vim setting file .vimrc not found"
+fi
 
 echo "Installing NeoBundle...."
 # Install NeoBundle
