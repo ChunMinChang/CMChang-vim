@@ -24,9 +24,11 @@ echo "Cloning CMChang-vim...."
 # Clone my vim folder
 git clone https://github.com/ChunMinChang/CMChang-vim.git
 
-# symlink to vimrc
+# symlink to .vimrc and .vim
 ln -s $CMC_VIMRC $ORI_VIMRC
-
-# symlink to vim
 ln -s $CMC_VIM/templates $ORI_VIM/templates
 ln -s $CMC_VIM/colors $ORI_VIM/colors
+
+# open vim to install the plugins 
+vim
+y
