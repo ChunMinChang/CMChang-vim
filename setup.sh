@@ -31,4 +31,3 @@ ln -s $CMC_VIM/colors $ORI_VIM/colors
 
 # open vim to install the plugins 
 vim
-y
