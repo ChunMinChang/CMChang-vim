@@ -82,8 +82,8 @@
  NeoBundle 'Valloric/YouCompleteMe', {
  \ 'build' : {
  \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
- \     'unix' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
- \     'linux' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang --omnisharp-completer',
+ \     'unix' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
+ \     'linux' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
  \     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
  \     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
  \    }
