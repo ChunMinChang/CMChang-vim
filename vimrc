@@ -32,6 +32,16 @@
  \    },
  \ }
 
+ " +----------------+
+ " | Basic Features |
+ " +----------------+
+ " backspace: Backspace through anything in insert mode.
+ " incsearch: Start searching before pressing enter.
+ " listchars: Makes :set list (visible whitespace) prettier.
+ " scrolloff: Always show at least one line above/below the cursor.
+ " runtime! macros/matchit.vim: Load the version of matchit.vim that ships with Vim.
+ NeoBundle 'tpope/vim-sensible'
+
  " +---------------------+
  " | Syntax highlighting |
  " +---------------------+
