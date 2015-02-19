@@ -207,8 +207,8 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/
 
 " Vim-Snipmate
 " ---------------------------------
-imap <C-J> <Plug>snipMateNextOrTrigger
-smap <C-J> <Plug>snipMateNextOrTrigger
+imap <C-E> <Plug>snipMateNextOrTrigger
+smap <C-E> <Plug>snipMateNextOrTrigger
 
 " Airline
 " ---------------------------------
