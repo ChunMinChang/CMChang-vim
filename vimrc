@@ -160,13 +160,11 @@ set shiftwidth=2
 " softtabstop = sts
 set softtabstop=2
 
-" Mozilla C++ coding style
-set ts=8 sts=2 et sw=2 tw=80
-
 " make 'tab' insert indents instead of tabs at the beginning of a line
 set smarttab
 
 " always uses spaces instead of tab characters
+" expandtab = et
 set expandtab
 
 " show line number
@@ -177,6 +175,9 @@ set ignorecase
 
 " Remove all trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Mozilla C++ coding style
+set ts=8 sts=2 et sw=2 tw=80
 
 " =================================
 " Plugins
