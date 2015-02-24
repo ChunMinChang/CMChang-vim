@@ -98,27 +98,37 @@
  \     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
  \    }
  \ }
-" Add or remove arguments to install.sh as necessary.
-" Additional steps might be necessary for Windows, as always. ;)
+ " Add or remove arguments to install.sh as necessary.
+ " Additional steps might be necessary for Windows, as always. ;)
 
-" SnipMate
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'garbas/vim-snipmate'
-NeoBundle 'honza/vim-snippets'
+ " SnipMate
+ NeoBundle 'MarcWeber/vim-addon-mw-utils'
+ NeoBundle 'tomtom/tlib_vim'
+ NeoBundle 'garbas/vim-snipmate'
+ NeoBundle 'honza/vim-snippets'
 
-" Auto Pairs
-"
-NeoBundle 'vim-scripts/Auto-Pairs'
+ " Auto Pairs
+ NeoBundle 'vim-scripts/Auto-Pairs'
 
-" Surround
-NeoBundle 'tpope/vim-surround'
+ " Surround
+ NeoBundle 'tpope/vim-surround'
 
-" +-----------------+
-" | syntax checking |
-" +-----------------+
-" syntastic
-"NeoBundle 'scrooloose/syntastic'
+ " +-------+
+ " | align |
+ " +-------+
+ NeoBundle 'junegunn/vim-easy-align'
+
+ " +----------+
+ " | Comments |
+ " +----------+
+ " nerdcommenter: comment shortcut
+ NeoBundle 'scrooloose/nerdcommenter'
+
+ " +-----------------+
+ " | syntax checking |
+ " +-----------------+
+ " syntastic
+ "NeoBundle 'scrooloose/syntastic'
 
 
  call neobundle#end()
