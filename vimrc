@@ -148,14 +148,20 @@ color jellybeans
 "color darkmate
 
 " size of a hard tabstop
+" tabstop = sp
 set tabstop=2
 
 " size of an 'indent'
+" shiftwidth = sw
 set shiftwidth=2
 
 " a combination of spaces and tabs are used to simulate tab stops at a width
 " other than the (hard)tabstop
+" softtabstop = sts
 set softtabstop=2
+
+" Mozilla C++ coding style
+set ts=8 sts=2 et sw=2 tw=80
 
 " make 'tab' insert indents instead of tabs at the beginning of a line
 set smarttab
