@@ -113,9 +113,9 @@
  " Surround
  NeoBundle 'tpope/vim-surround'
 
- " +-------+
- " | align |
- " +-------+
+ " +------------+
+ " | text-align |
+ " +------------+
  NeoBundle 'junegunn/vim-easy-align'
 
  " +----------+
@@ -232,6 +232,15 @@ smap <C-E> <Plug>snipMateNextOrTrigger
 set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline_theme='powerlineish'
+
+" vim-easy-align
+" ---------------------------------
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 
 " =================================
 " Shortcut
