@@ -33,7 +33,7 @@ else
   echo "Directory .vim not found!"
 fi
 
-# Check the vim settinh file .vimrc
+# Check the vim setting file .vimrc
 if [ -f $ORI_VIMRC  ]; then
   echo "vim setting file .vimrc exists! Now backup this file to $BKP_VIMRC"
   mv $ORI_VIMRC $BKP_VIMRC
