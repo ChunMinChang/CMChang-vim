@@ -15,6 +15,16 @@ echo "Go home directory: $USER_HOME"
 # $HOME could be changed by user
 cd $USER_HOME
 
+# Check the git
+echo "Installing git...."
+if which git > /dev/null; then
+    echo "git already exists!"
+else
+    echo "git not found! Installing it now..."
+    # Install the git
+    sudo apt-get install git
+fi
+
 # Check the vim
 echo "Installing vim...."
 if which vim > /dev/null; then
