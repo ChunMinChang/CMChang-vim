@@ -21,6 +21,8 @@
  " Refer to |:NeoBundle-examples|.
  " Note: You don't set neobundle setting in .gvimrc!
 
+ "===============================================================================
+
  " vim-process
  NeoBundle 'Shougo/vimproc.vim', {
  \ 'build' : {
@@ -88,19 +90,6 @@
  " +--------------+
  " | AutoComplete |
  " +--------------+
- " YouCompleteMe
- NeoBundle 'Valloric/YouCompleteMe', {
- \ 'build' : {
- \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
- \     'unix' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
- \     'linux' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
- \     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
- \     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
- \    }
- \ }
- " Add or remove arguments to install.sh as necessary.
- " Additional steps might be necessary for Windows, as always. ;)
-
  " SnipMate
  NeoBundle 'MarcWeber/vim-addon-mw-utils'
  NeoBundle 'tomtom/tlib_vim'
@@ -112,6 +101,28 @@
 
  " Surround
  NeoBundle 'tpope/vim-surround'
+
+ " YouCompleteMe
+ "NeoBundle 'Valloric/YouCompleteMe', {
+ "\ 'build' : {
+ "\     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+ "\     'unix' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
+ "\     'linux' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
+ "\     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+ "\     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
+ "\    }
+ "\ }
+ " Add or remove arguments to install.sh as necessary.
+ " Additional steps might be necessary for Windows, as always. ;)
+
+NeoBundle 'Valloric/YouCompleteMe', {
+     \ 'build'      : {
+        \ 'mac'     : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+        \ 'unix'    : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+        \ 'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+        \ 'cygwin'  : './install.sh --clang-completer --system-libclang --omnisharp-completer'
+        \ }
+     \ }
 
  " +------------+
  " | text-align |
@@ -129,6 +140,8 @@
  " +-----------------+
  " syntastic
  "NeoBundle 'scrooloose/syntastic'
+
+ "===============================================================================
 
 
  call neobundle#end()
@@ -216,7 +229,8 @@ nnoremap <F3> :UndotreeToggle<cr>
 
 " YouCompleteMe
 " ---------------------------------
-let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+"let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+let g:neobundle#install_process_timeout = 1500
 
 " Syntastic
 " ---------------------------------
