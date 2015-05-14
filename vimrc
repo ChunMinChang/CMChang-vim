@@ -1,167 +1,170 @@
 " Note: Skip initialization for vim-tiny or vim-small.
- if !1 | finish | endif
+if !1 | finish | endif
 
- if has('vim_starting')
-   if &compatible
-     set nocompatible               " Be iMproved
-   endif
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
-   " Required:
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
- endif
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
- " Required:
- call neobundle#begin(expand('~/.vim/bundle/'))
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
- " Let NeoBundle manage NeoBundle
- " Required:
- NeoBundleFetch 'Shougo/neobundle.vim'
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
- " My Bundles here:
- " Refer to |:NeoBundle-examples|.
- " Note: You don't set neobundle setting in .gvimrc!
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 
- "===============================================================================
+" ******************************************************
+"   Plugins
+" ******************************************************
 
- " vim-process
- NeoBundle 'Shougo/vimproc.vim', {
- \ 'build' : {
- \     'windows' : 'tools\\update-dll-mingw',
- \     'cygwin' : 'make -f make_cygwin.mak',
- \     'mac' : 'make -f make_mac.mak',
- \     'linux' : 'make',
- \     'unix' : 'gmake',
- \    },
- \ }
+" vim-process
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
- " +----------------+
- " | Basic Features |
- " +----------------+
- " backspace: Backspace through anything in insert mode.
- " incsearch: Start searching before pressing enter.
- " listchars: Makes :set list (visible whitespace) prettier.
- " scrolloff: Always show at least one line above/below the cursor.
- " runtime! macros/matchit.vim: Load the version of matchit.vim that ships with Vim.
- NeoBundle 'tpope/vim-sensible'
+" +----------------+
+" | Basic Features |
+" +----------------+
+" backspace: Backspace through anything in insert mode.
+" incsearch: Start searching before pressing enter.
+" listchars: Makes :set list (visible whitespace) prettier.
+" scrolloff: Always show at least one line above/below the cursor.
+" runtime! macros/matchit.vim: Load the version of matchit.vim that ships with Vim.
+NeoBundle 'tpope/vim-sensible'
 
- " +---------------------+
- " | Syntax highlighting |
- " +---------------------+
- " colorscheme
- "NeoBundle 'yearofmoo/Vim-Darkmate'
+" +---------------------+
+" | Syntax highlighting |
+" +---------------------+
+" colorscheme
+"NeoBundle 'yearofmoo/Vim-Darkmate'
 
- " html5
- NeoBundle 'othree/html5.vim'
+" html5
+NeoBundle 'othree/html5.vim'
 
- " markdown
- NeoBundle 'plasticboy/vim-markdown'
+" markdown
+NeoBundle 'plasticboy/vim-markdown'
 
- " @@@@@@@@@@@
- " @ Mozilla @
- " @@@@@@@@@@@
- NeoBundle 'mozfr/mozilla.vim'
+" @@@ Mozilla Gecko keyword @@@
+NeoBundle 'mozfr/mozilla.vim'
 
- " +------------+
- " | File Lists |
- " +------------+
- " NERD Tree
- NeoBundle 'scrooloose/nerdtree'
+" +------------+
+" | text-align |
+" +------------+
+NeoBundle 'junegunn/vim-easy-align'
 
- " NERD Tree Tabs
- NeoBundle 'jistr/vim-nerdtree-tabs'
+" +----------+
+" | Comments |
+" +----------+
+" nerdcommenter: comment shortcut
+NeoBundle 'scrooloose/nerdcommenter'
 
- " +---------------------+
- " | File open searching |
- " +---------------------+
- " ctrlP
- NeoBundle 'kien/ctrlp.vim'
+" +------------+
+" | File Lists |
+" +------------+
+" NERD Tree
+NeoBundle 'scrooloose/nerdtree'
 
- " +------+
- " | Undo |
- " +------+
- " Undo Tree
- NeoBundle 'mbbill/undotree'
+" NERD Tree Tabs
+NeoBundle 'jistr/vim-nerdtree-tabs'
 
- " +---------+
- " | Airline |
- " +---------+
- NeoBundle 'bling/vim-airline'
+" +---------------------+
+" | File open searching |
+" +---------------------+
+" ctrlP
+NeoBundle 'kien/ctrlp.vim'
 
- " +--------------+
- " | AutoComplete |
- " +--------------+
- " SnipMate
- NeoBundle 'MarcWeber/vim-addon-mw-utils'
- NeoBundle 'tomtom/tlib_vim'
- NeoBundle 'garbas/vim-snipmate'
- NeoBundle 'honza/vim-snippets'
+" +------+
+" | Undo |
+" +------+
+" Undo Tree
+NeoBundle 'mbbill/undotree'
 
- " Auto Pairs
- NeoBundle 'vim-scripts/Auto-Pairs'
+" +--------------+
+" | AutoComplete |
+" +--------------+
+" SnipMate
+NeoBundle 'MarcWeber/vim-addon-mw-utils'
+NeoBundle 'tomtom/tlib_vim'
+NeoBundle 'garbas/vim-snipmate'
+NeoBundle 'honza/vim-snippets'
 
- " Surround
- NeoBundle 'tpope/vim-surround'
+" Auto Pairs
+NeoBundle 'vim-scripts/Auto-Pairs'
 
- " YouCompleteMe
- "NeoBundle 'Valloric/YouCompleteMe', {
- "\ 'build' : {
- "\     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
- "\     'unix' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
- "\     'linux' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
- "\     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
- "\     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
- "\    }
- "\ }
- " Add or remove arguments to install.sh as necessary.
- " Additional steps might be necessary for Windows, as always. ;)
+" Surround
+NeoBundle 'tpope/vim-surround'
+
+" YouCompleteMe
+"NeoBundle 'Valloric/YouCompleteMe', {
+"\ 'build' : {
+"\     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+"\     'unix' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
+"\     'linux' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
+"\     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+"\     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
+"\    }
+"\ }
+" Add or remove arguments to install.sh as necessary.
+" Additional steps might be necessary for Windows, as always. ;)
 
 NeoBundle 'Valloric/YouCompleteMe', {
-     \ 'build'      : {
-        \ 'mac'     : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-        \ 'unix'    : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-        \ 'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-        \ 'cygwin'  : './install.sh --clang-completer --system-libclang --omnisharp-completer'
-        \ }
-     \ }
+  \ 'build'      : {
+  \ 'mac'     : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+  \ 'unix'    : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+  \ 'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+  \ 'cygwin'  : './install.sh --clang-completer --system-libclang --omnisharp-completer'
+  \ }
+\ }
 
- " +------------+
- " | text-align |
- " +------------+
- NeoBundle 'junegunn/vim-easy-align'
-
- " +----------+
- " | Comments |
- " +----------+
- " nerdcommenter: comment shortcut
- NeoBundle 'scrooloose/nerdcommenter'
-
- " +-----------------+
- " | syntax checking |
- " +-----------------+
- " syntastic
- "NeoBundle 'scrooloose/syntastic'
-
- "===============================================================================
+" +-----------------+
+" | syntax checking |
+" +-----------------+
+" syntastic
+"NeoBundle 'scrooloose/syntastic'
+" >> YouCompleteMe already has this feature!
 
 
- call neobundle#end()
-
- " Required:
- filetype plugin indent on
-
- " Brief help
- " :NeoBundleList          - list configured bundles
- " :NeoBundleInstall(!)    - install(update) bundles
- " :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-
- " If there are uninstalled bundles found on startup,
- " this will conveniently prompt you to install them.
- NeoBundleCheck
+" +---------+
+" | Airline |
+" +---------+
+NeoBundle 'bling/vim-airline'
 
 
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" Brief help
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+
+" ******************************************************
+"   Environment Settings
+" ******************************************************
 
 " =================================
-" Vim Setting
+" General
 " =================================
 " Set colors
 set t_Co=256
@@ -241,12 +244,6 @@ let g:neobundle#install_process_timeout = 1500
 imap <C-E> <Plug>snipMateNextOrTrigger
 smap <C-E> <Plug>snipMateNextOrTrigger
 
-" Airline
-" ---------------------------------
-set laststatus=2
-let g:airline_powerline_fonts=1
-let g:airline_theme='powerlineish'
-
 " vim-easy-align
 " ---------------------------------
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
@@ -254,6 +251,12 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Airline
+" ---------------------------------
+set laststatus=2
+let g:airline_powerline_fonts=1
+let g:airline_theme='powerlineish'
 
 
 " =================================
@@ -272,8 +275,7 @@ set pastetoggle=<F10>
 " Delete all trailing whitespace.
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-
-" Resize
+" Resize split window of vim
 " ---------------------------------
 " resize vertical split window
 nmap <C-Left> <C-W><
