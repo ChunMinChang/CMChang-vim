@@ -61,6 +61,20 @@ fi
 
 
 
+# Check the curl
+echo -e "\n  Installing curl...."
+echo "--------------------------------------------------"
+if which curl > /dev/null; then
+    echo "curl already exists!"
+else
+    echo "curl not found! Installing it now..."
+    # Install the curl
+    sudo apt-get install curl -y
+fi
+
+
+
+
 # Install NeoBundle
 echo -e "\n  Installing NeoBundle...."
 echo "--------------------------------------------------"
@@ -121,7 +135,8 @@ fi
 
 echo -e "\n  Installing cmake and python-dev....."
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-sudo apt-get install build-essential cmake && sudo apt-get install python-dev -y
+sudo apt-get install build-essential cmake -y
+sudo apt-get install python-dev -y
 
 
 
