@@ -11,21 +11,28 @@ ORI_VIMRC=$USER_HOME/.vimrc
 BKP_VIM=$USER_HOME/vim-backup
 BKP_VIMRC=$USER_HOME/vimrc-backup
 
+
 echo -e "\n  installing CMChang's Vim"
 echo "============================================================================="
 echo "Go home directory: $USER_HOME"
 # $HOME could be changed by user
 cd $USER_HOME
 
+
+
 # Install the curl
 echo -e "\n  Installing curl...."
 echo "--------------------------------------------------"
 sudo apt-get install curl -y
 
+
+
 # Install the git
 echo -e "\n  Installing git...."
 echo "--------------------------------------------------"
 sudo apt-get install git -y
+
+
 
 # Install the vim
 echo -e "\n  Installing vim...."
@@ -49,10 +56,13 @@ else
 fi
 
 
+
 # Install NeoBundle
 echo -e "\n  Installing NeoBundle...."
 echo "--------------------------------------------------"
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+
+
 
 # Clone git repo
 echo -e "\n  Cloning git repo of CMChang-vim...."
@@ -66,17 +76,14 @@ ln -s $CMC_VIM/colors $ORI_VIM/colors
 
 
 
-
 # install required lib for vim-plugins
 # 1) YouCompleteMe
 echo -e "\n  Installing required lib for vim's plugins...."
 echo "--------------------------------------------------"
 
+# install the clang
 echo -e "\n  Installing libclang(and llvm)....."
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-
-# install the clang
-
 # update locate
 #sudo updatedb
 #libclang=$(locate libclang.so)
@@ -103,11 +110,11 @@ else
   fi
 fi
 
+# install the cmake and python-dev
 echo -e "\n  Installing cmake and python-dev....."
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 sudo apt-get install build-essential cmake -y
 sudo apt-get install python-dev -y
-
 
 
 
