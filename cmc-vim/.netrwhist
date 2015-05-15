@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/chunmin/Work/mozDevDoc'
-let g:netrw_dirhist_2='/home/chunmin/Work'
-let g:netrw_dirhist_3='/home/chunmin/Work/B2G'
