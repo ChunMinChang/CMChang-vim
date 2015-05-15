@@ -132,6 +132,16 @@ NeoBundle 'Valloric/YouCompleteMe', {
 " +---------+
 NeoBundle 'bling/vim-airline'
 
+" Integrating with powerline fonts
+"NeoBundle 'powerline/fonts', {
+"  \ 'build'   : {
+"    \ 'mac'     : './install.sh',
+"    \ 'linux'   : './install.sh',
+"    \ 'unix'    : './install.sh',
+"    \ 'windows' : './install.sh',
+"    \ 'cygwin'  : './install.sh'
+"  \ }
+"\ }
 
 call neobundle#end()
 
@@ -246,7 +256,10 @@ let g:neobundle#install_process_timeout = 1500
 set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline_theme='powerlineish'
-
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
 " =================================
 " Shortcut
