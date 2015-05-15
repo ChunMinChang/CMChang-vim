@@ -48,3 +48,7 @@ After the script running, your vim will be opened and prompt you to install the 
 $ cd ~/.vim/bundle/YouCompleteMe/ && sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang --omnisharp-completer
 ```
 Now, the installing is finished!
+
+
+## FAQ
+- wrong airline symbol: http://askubuntu.com/questions/393005/having-problem-with-fonts-in-vim-airline
