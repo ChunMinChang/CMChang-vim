@@ -17,30 +17,20 @@ echo "Go home directory: $USER_HOME"
 # $HOME could be changed by user
 cd $USER_HOME
 
-# Check the git
+# Install the curl
+echo -e "\n  Installing curl...."
+echo "--------------------------------------------------"
+sudo apt-get install curl -y
+
+# Install the git
 echo -e "\n  Installing git...."
 echo "--------------------------------------------------"
-if which git > /dev/null; then
-    echo "git already exists!"
-else
-    echo "git not found! Installing it now..."
-    # Install the git
-    sudo apt-get install git -y
-fi
+sudo apt-get install git -y
 
-
-
-
-# Check the vim
+# Install the vim
 echo -e "\n  Installing vim...."
 echo "--------------------------------------------------"
-if which vim > /dev/null; then
-    echo "vim already exists!"
-else
-    echo "vim not found! Installing it now..."
-    # Install the vim
-    sudo apt-get install vim -y
-fi
+sudo apt-get install vim -y
 
 # Check the directory .vim
 if [ -d $ORI_VIM  ]; then
@@ -59,19 +49,10 @@ else
 fi
 
 
-
-
 # Install NeoBundle
 echo -e "\n  Installing NeoBundle...."
 echo "--------------------------------------------------"
-# Install the curl
-sudo apt-get install curl -y
-# Get NeoBundle
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-
-
-
-
 
 # Clone git repo
 echo -e "\n  Cloning git repo of CMChang-vim...."
