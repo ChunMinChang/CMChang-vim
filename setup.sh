@@ -11,28 +11,35 @@ ORI_VIMRC=$USER_HOME/.vimrc
 BKP_VIM=$USER_HOME/vim-backup
 BKP_VIMRC=$USER_HOME/vimrc-backup
 
+echo -e "\n  installing CMChang's Vim"
+echo "============================================================================="
 echo "Go home directory: $USER_HOME"
 # $HOME could be changed by user
 cd $USER_HOME
 
 # Check the git
-echo "Installing git...."
+echo -e "\n  Installing git...."
+echo "--------------------------------------------------"
 if which git > /dev/null; then
     echo "git already exists!"
 else
     echo "git not found! Installing it now..."
     # Install the git
-    sudo apt-get install git
+    sudo apt-get install git -y
 fi
 
+
+
+
 # Check the vim
-echo "Installing vim...."
+echo -e "\n  Installing vim...."
+echo "--------------------------------------------------"
 if which vim > /dev/null; then
     echo "vim already exists!"
 else
     echo "vim not found! Installing it now..."
     # Install the vim
-    sudo apt-get install vim
+    sudo apt-get install vim -y
 fi
 
 # Check the directory .vim
@@ -51,12 +58,21 @@ else
   echo "vim setting file .vimrc not found"
 fi
 
-echo "Installing NeoBundle...."
+
+
+
 # Install NeoBundle
+echo -e "\n  Installing NeoBundle...."
+echo "--------------------------------------------------"
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 
-echo "Cloning CMChang-vim...."
-# Clone my vim folder
+
+
+
+
+# Clone git repo
+echo -e "\n  Cloning git repo of CMChang-vim...."
+echo "--------------------------------------------------"
 git clone https://github.com/ChunMinChang/CMChang-vim.git
 
 # symlink to .vimrc and .vim
@@ -64,5 +80,51 @@ ln -s $CMC_VIMRC $ORI_VIMRC
 ln -s $CMC_VIM/templates $ORI_VIM/templates
 ln -s $CMC_VIM/colors $ORI_VIM/colors
 
-# open vim to install the plugins 
+
+
+
+# install required lib for vim-plugins
+# 1) YouCompleteMe
+echo -e "\n  Installing required lib for vim's plugins...."
+echo "--------------------------------------------------"
+
+echo -e "\n  Installing libclang(and llvm)....."
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
+# install the clang
+
+# update locate
+#sudo updatedb
+#libclang=$(locate libclang.so)
+LLVM_PATH=/usr/lib/llvm-3.5/lib # Here we use clang-3.5
+libclang=$LLVM_PATH/libclang.so
+if [ -e "$libclang" ]; then
+  echo "libclang.so already exists"
+else
+  echo "libclang.so doesn't exist! install it now!"
+  #sudo apt-get install clang -y
+  sudo apt-get install clang-3.5 lldb-3.5 -y
+
+  # Make sure the libclang.so exist in llvm
+  # reference: https://github.com/wklken/k-vim/issues/77
+  if [ ! -e "$libclang" ]; then
+    echo "libclang.so doesn't exist!"
+    echo "Link $LLVM_PATH/libclang.so.1 to $LLVM_PATH/libclang.so"
+    sudo ln -sf $LLVM_PATH/libclang.so.1 $LLVM_PATH/libclang.so
+  elif [ -L "$libclang" ]; then
+    echo "libclang.so have no link?"
+    echo "Link $LLVM_PATH/libclang.so.1 to $LLVM_PATH/libclang.so"
+    sudo unlink $LLVM_PATH/libclang.so
+    sudo ln -sf $LLVM_PATH/libclang.so.1 $LLVM_PATH/libclang.so
+  fi
+fi
+
+echo -e "\n  Installing cmake and python-dev....."
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+sudo apt-get install build-essential cmake && sudo apt-get install python-dev -y
+
+
+
+
+# open vim to install the plugins
 vim

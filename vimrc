@@ -109,24 +109,13 @@ NeoBundle 'vim-scripts/Auto-Pairs'
 NeoBundle 'tpope/vim-surround'
 
 " YouCompleteMe
-"NeoBundle 'Valloric/YouCompleteMe', {
-"\ 'build' : {
-"\     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-"\     'unix' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
-"\     'linux' : 'sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang',
-"\     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-"\     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
-"\    }
-"\ }
-" Add or remove arguments to install.sh as necessary.
-" Additional steps might be necessary for Windows, as always. ;)
-
 NeoBundle 'Valloric/YouCompleteMe', {
-  \ 'build'      : {
-  \ 'mac'     : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-  \ 'unix'    : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-  \ 'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-  \ 'cygwin'  : './install.sh --clang-completer --system-libclang --omnisharp-completer'
+  \ 'build'   : {
+    \ 'mac'     : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+    \ 'linux'   : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+    \ 'unix'    : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+    \ 'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+    \ 'cygwin'  : './install.sh --clang-completer --system-libclang --omnisharp-completer'
   \ }
 \ }
 
@@ -230,11 +219,6 @@ let NERDTreeIgnore=['\.pyc$']
 " ---------------------------------
 nnoremap <F3> :UndotreeToggle<cr>
 
-" YouCompleteMe
-" ---------------------------------
-"let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
-let g:neobundle#install_process_timeout = 1500
-
 " Syntastic
 " ---------------------------------
 "let g:syntastic_cpp_check_header = 1
@@ -251,6 +235,11 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" YouCompleteMe
+" ---------------------------------
+"let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+let g:neobundle#install_process_timeout = 1500
 
 " Airline
 " ---------------------------------
