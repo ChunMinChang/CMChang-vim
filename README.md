@@ -1,5 +1,7 @@
 # CMChang-vim
 
+| Last update   | 2015-05-15 |
+| clang version | 3.5        |
 
 ## How to use
 Simply run the following command:
