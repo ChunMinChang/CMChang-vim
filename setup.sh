@@ -61,23 +61,12 @@ fi
 
 
 
-# Check the curl
-echo -e "\n  Installing curl...."
-echo "--------------------------------------------------"
-if which curl > /dev/null; then
-    echo "curl already exists!"
-else
-    echo "curl not found! Installing it now..."
-    # Install the curl
-    sudo apt-get install curl -y
-fi
-
-
-
-
 # Install NeoBundle
 echo -e "\n  Installing NeoBundle...."
 echo "--------------------------------------------------"
+# Install the curl
+sudo apt-get install curl -y
+# Get NeoBundle
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 
 
