@@ -19,10 +19,11 @@ If your clang is 3.5:
 $ wget https://raw.githubusercontent.com/ChunMinChang/CMChang-vim/master/setup.sh && bash setup.sh
 ```
 Otherwise, you should download setup.sh and modify the clang version befroe installing
-- download: 
+- download:
   ```bash
   $ wget https://raw.githubusercontent.com/ChunMinChang/CMChang-vim/master/setup.sh
   ```
+
 - modify the clang version in setup.sh
   - you can find the lastest version here: http://llvm.org/apt/
   ```bash
@@ -40,7 +41,7 @@ Otherwise, you should download setup.sh and modify the clang version befroe inst
   
 - install
   ```bash
-  bash setup.sh
+  $ setup.sh
   ```
 
 After the script running, your vim will be opened and prompt you to install the plugins set by vimrc. You should enter **Y** to start the installing. However, the plugin **YouCompleteMe** will fail to be installed in the vim now. The vim will show the failed-installing message and ask you if this plugin should be removed or not. Please enter **N**. This problem can be fixed by following command after vim finish installing the other plugins:
