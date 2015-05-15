@@ -133,15 +133,15 @@ NeoBundle 'Valloric/YouCompleteMe', {
 NeoBundle 'bling/vim-airline'
 
 " Integrating with powerline fonts
-"NeoBundle 'powerline/fonts', {
-"  \ 'build'   : {
-"    \ 'mac'     : './install.sh',
-"    \ 'linux'   : './install.sh',
-"    \ 'unix'    : './install.sh',
-"    \ 'windows' : './install.sh',
-"    \ 'cygwin'  : './install.sh'
-"  \ }
-"\ }
+NeoBundle 'powerline/fonts', {
+  \ 'build'   : {
+    \ 'mac'     : './install.sh',
+    \ 'linux'   : './install.sh',
+    \ 'unix'    : './install.sh',
+    \ 'windows' : './install.sh',
+    \ 'cygwin'  : './install.sh'
+  \ }
+\ }
 
 call neobundle#end()
 
