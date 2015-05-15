@@ -1,14 +1,15 @@
 # CMChang-vim
 
-| Option         | Description |
-| -------------- | ----------- |
-| last update    | 2015-05-15  |
-| clang version  | 3.5         |
+| Options         | Description |
+| --------------- | ----------- |
+| last update     | 2015-05-15  |
+| clang version   | 3.5         |
+
 
 ## Plugin Dependence
 - YouCompleteMe 
   - clang : you can find the lastest version here: http://llvm.org/apt/
-    - Remember to modify
+    - Remember to modify clang setting in setup.sh if your clang version is different from this
 
 ## How to use
 Simply run the following command:
@@ -30,7 +31,7 @@ Otherwise, you should download setup.sh and modify the clang version befroe inst
   ...
   # install the clang
   ...
-  LLVM_PATH=/usr/lib/llvm-3.5/lib # Here we use clang-your_version_here
+  LLVM_PATH=/usr/lib/llvm-your_version_here/lib # To get clang-your_version_here
   ...
   ...
   sudo apt-get install clang-your_version_here lldb-your_version_here -y
@@ -51,4 +52,6 @@ Now, the installing is finished!
 
 
 ## FAQ
-- wrong airline symbol: http://askubuntu.com/questions/393005/having-problem-with-fonts-in-vim-airline
+- vim-airline symbols are garbled? You need to set the powerline-fonts in your Terminal
+  - Open "Terminal" >> Edit >> Profile Preferences >> General >> Font >> XXXX Powerline
+  - http://askubuntu.com/questions/393005/having-problem-with-fonts-in-vim-airline
