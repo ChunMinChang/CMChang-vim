@@ -259,6 +259,7 @@ nmap ga <Plug>(EasyAlign)
 " ---------------------------------
 "let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 let g:neobundle#install_process_timeout = 1500
+let g:ycm_confirm_extra_conf = 0 "Prevent to ask ..Found .../.ycm_extra_conf.py. Load?
 
 " Tagbar
 " ---------------------------------
