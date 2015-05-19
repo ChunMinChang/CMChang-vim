@@ -47,7 +47,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'tpope/vim-sensible'
 
 " +---------------------+
-" | Syntax highlighting |
+" | Syntax Highlighting |
 " +---------------------+
 " colorscheme
 "NeoBundle 'yearofmoo/Vim-Darkmate'
@@ -62,7 +62,7 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'mozfr/mozilla.vim'
 
 " +------------+
-" | text-align |
+" | Text-align |
 " +------------+
 NeoBundle 'junegunn/vim-easy-align'
 
@@ -82,7 +82,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 
 " +---------------------+
-" | File open searching |
+" | File Open Searching |
 " +---------------------+
 " ctrlP
 NeoBundle 'kien/ctrlp.vim'
@@ -120,12 +120,18 @@ NeoBundle 'Valloric/YouCompleteMe', {
 \ }
 
 " +-----------------+
-" | syntax checking |
+" | Syntax Checking |
 " +-----------------+
 " syntastic
 "NeoBundle 'scrooloose/syntastic'
 " >> YouCompleteMe already has this feature!
 
+
+" +----------------------+
+" | source code explorer |
+" +----------------------+
+" Tagbar
+NeoBundle 'majutsushi/tagbar'
 
 " +---------+
 " | Airline |
@@ -152,6 +158,9 @@ filetype plugin indent on
 " :NeoBundleList          - list configured bundles
 " :NeoBundleInstall(!)    - install(update) bundles
 " :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" :NeoBundleClean         - automatically remove unused bundles
+" :NeoBundleUpdate        - automatically update all bundles
+" More commands: https://github.com/Shougo/neobundle.vim/blob/master/doc/neobundle.txt
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -250,6 +259,14 @@ nmap ga <Plug>(EasyAlign)
 " ---------------------------------
 "let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 let g:neobundle#install_process_timeout = 1500
+
+" Tagbar
+" ---------------------------------
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_width = 30 "default size is 40
+let g:tagbar_sort = 0 "1: Sorted by name, 0: Sorted by scope
+let g:tagbar_autopreview = 1
+let g:tagbar_previewwin_pos = "aboveleft"
 
 " Airline
 " ---------------------------------

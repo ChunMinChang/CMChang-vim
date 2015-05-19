@@ -77,10 +77,10 @@ ln -s $CMC_VIM/colors $ORI_VIM/colors
 
 
 # install required lib for vim-plugins
-# 1) YouCompleteMe
 echo -e "\n  Installing required lib for vim's plugins...."
 echo "--------------------------------------------------"
 
+# 1) YouCompleteMe
 # install the clang
 echo -e "\n  Installing libclang(and llvm)....."
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
@@ -116,6 +116,12 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 sudo apt-get install build-essential cmake -y
 sudo apt-get install python-dev -y
 
+
+# 2) Tagbar and SrcExpl
+# install ctags
+echo -e "\n  Installing exuberant-ctags....."
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+sudo apt-get install exuberant-ctags -y
 
 
 # open vim to install the plugins
