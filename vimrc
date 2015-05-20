@@ -219,14 +219,39 @@ set ts=8 sts=2 et sw=2 tw=80
 
 " NERDTree
 " ---------------------------------
-nnoremap <silent> <F2> :NERDTreeMirrorToggle<CR>
+function! NTFinderP()
+  "" Check if NERDTree is open
+  if exists("t:NERDTreeBufName")
+    let s:ntree = bufwinnr(t:NERDTreeBufName)
+  else
+    let s:ntree = -1
+  endif
+  if (s:ntree != -1)
+    "" If NERDTree is open, close it.
+    :NERDTreeClose
+  else
+    "" Try to open a :Rtree for the rails project
+    if exists(":Rtree")
+      "" Open Rtree (using rails plugin, it opens in project dir)
+      :Rtree
+    else
+      "" Open NERDTree in the file path
+      :NERDTreeFind
+    endif
+  endif
+endfunction
+
+"" Toggles NERDTree
+map <silent> <F2> :call NTFinderP()<CR>
+"nnoremap <silent> <F2> :NERDTreeMirrorToggle<CR>
+"autocmd BufEnter * lcd %:p:h
+" open directory of current opened file
+"map <leader>r :NERDTreeFind<cr>
 let NERDTreeShowBookmarks=0
 let NERDTreeChDirMode=2
 let NERDTreeMouseMode=2
 let g:nerdtree_tabs_focus_on_files=1
 let g:nerdtree_tabs_open_on_gui_startup=0
-" open directory of current opened file
-map <leader>r :NERDTreeFind<cr>
 
 " make nerdtree look nice
 let NERDTreeMinimalUI=1
