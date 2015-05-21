@@ -48,6 +48,14 @@ After the script running, your vim will be opened and prompt you to install the 
 
 ```bash
 $ cd ~/.vim/bundle/YouCompleteMe/ && sudo apt-get install build-essential cmake && sudo apt-get install python-dev && git submodule update --init --recursive && ./install.sh --clang-completer --system-libclang --omnisharp-completer
+
+or
+
+$ cd ~/.vim/bundle/YouCompleteMe/
+$ sudo apt-get install build-essential cmake
+$ sudo apt-get install python-dev
+$ git submodule update --init --recursive
+$ ./install.sh --clang-completer --system-libclang --omnisharp-completer
 ```
 Now, the installing is finished!
 
