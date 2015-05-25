@@ -313,20 +313,39 @@ endif
 let g:airline_symbols.space = "\ua0"
 
 " =================================
-" Shortcut
+" Vim Shortcut
 " =================================
-"nnoremap <silent> <F2> :NERDTreeMirrorToggle<CR>
-"nnoremap <F3> :UndotreeToggle<cr>
+" Tab Switch
+" next tab
+noremap <leader>] gt
+" previous tab
+noremap <leader>[ gT
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
 " Toggle the line number
 nmap <C-A><C-A> :set invnumber<CR>
+
 " Undo shortcut
 nnoremap <F9> :u<CR>
-" Read the code template
-nmap <C-H><C-H> :r ~/.vim/templates/foo.html<CR>
+
 " Toggle paste in insert mode
 set pastetoggle=<F10>
+
 " Delete all trailing whitespace.
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Read the code template
+nmap <C-H><C-H> :r ~/.vim/templates/foo.html<CR>
 
 " Resize split window of vim
 " ---------------------------------
