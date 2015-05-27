@@ -126,12 +126,14 @@ NeoBundle 'Valloric/YouCompleteMe', {
 "NeoBundle 'scrooloose/syntastic'
 " >> YouCompleteMe already has this feature!
 
-
-" +----------------------+
-" | source code explorer |
-" +----------------------+
+" +------------------------+
+" | source code navigation |
+" +------------------------+
 " Tagbar
 NeoBundle 'majutsushi/tagbar'
+
+" Cscope
+NeoBundle 'vim-scripts/cscope.vim'
 
 " +---------+
 " | Airline |
@@ -212,6 +214,87 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Mozilla C++ coding style
 set ts=8 sts=2 et sw=2 tw=80
+
+" =================================
+" ctags and cscope
+" =================================
+" In windows, the delete commands should be changed to windows format.
+" for exampe, delete("./"."tags") should be changed to
+"   let dir = getcwd()
+"   delete(dir."\\"."tags")
+function UpdateCsTag()
+  " Delete the current (ctags)tags file
+  if filereadable("tags")
+    let tagsdeleted=delete("./"."tags")
+    if(tagsdeleted!=0)
+      echohl WarningMsg | echo "Fail to delete the tags!" | echohl None
+      return
+    endif
+  endif
+  " Disconnect to the current cscope database
+  if has("cscope")
+    " Kill a connection
+    silent! execute "cs kill -1"
+  endif
+  " Delete the current cscope file: cscope.files
+  if filereadable("cscope.files")
+    let csfilesdeleted=delete("./"."cscope.files")
+    if(csfilesdeleted!=0)
+      echohl WarningMsg | echo "Fail to delete the cscope.files" | echohl None
+      return
+    endif
+  endif
+  " Delete the current cscope file: cscope.out
+  if filereadable("cscope.out")
+    let csoutdeleted=delete("./"."cscope.out")
+    if(csoutdeleted!=0)
+      echohl WarningMsg | echo "Fail to delete the cscope.out" | echohl None
+      return
+    endif
+  endif
+  if filereadable("cscope.in.out")
+    let csinoutdeleted=delete("./"."cscope.in.out")
+    if(csinoutdeleted!=0)
+      echohl WarningMsg | echo "Fail to delete the cscope.in.out" | echohl None
+      return
+    endif
+  endif
+  if filereadable("cscope.po.out")
+    let cspooutdeleted=delete("./"."cscope.po.out")
+    if(cspooutdeleted!=0)
+      echohl WarningMsg | echo "Fail to delete the cscope.po.out" | echohl None
+      return
+    endif
+  endif
+  if(executable('ctags'))
+    " This line may be different depending one the programming language
+    silent! execute "!ctags -R --c++-kinds=+px --fields=+iaS --extra=+q ."
+  endif
+  if(executable('cscope') && has("cscope"))
+    " This line may be different depending one the programming language
+    silent! execute "!find . -name '*.h' -o -name '*.c' -o -name '*.cpp' -o -name '*.java' -o -name '*.cs' > cscope.files"
+    silent! execute "!cscope -Rbkq"
+    execute "normal :"
+    " Connect to new cscope database: cscope.out
+    if filereadable("cscope.out")
+      exe "cs add cscope.out"
+    else
+      echohl WarningMsg | echo "Fail to connect to cscope database: cscope.out" | echohl None
+      return
+    endif
+  endif
+endfunction
+
+map <F12> :call UpdateCsTag()<CR>
+nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>:copen<CR>
+nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:copen<CR>
+nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>
+
 
 " =================================
 " Plugins

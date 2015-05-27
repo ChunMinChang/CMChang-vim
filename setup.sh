@@ -117,11 +117,17 @@ sudo apt-get install build-essential cmake -y
 sudo apt-get install python-dev -y
 
 
-# 2) Tagbar and SrcExpl
+# 2) Tagbar
 # install ctags
 echo -e "\n  Installing exuberant-ctags....."
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 sudo apt-get install exuberant-ctags -y
+
+# 3) Cscope
+echo -e "\n  Installing cscope....."
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+sudo apt-get install cscope -y
+
 
 
 # open vim to install the plugins
