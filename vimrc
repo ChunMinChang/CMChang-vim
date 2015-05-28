@@ -268,7 +268,10 @@ function UpdateCsTag()
   endif
   if(executable('ctags'))
     " This line may be different depending one the programming language
-    silent! execute "!ctags -R --c++-kinds=+px --fields=+iaS --extra=+q ."
+    "silent! execute "!ctags -R --c++-kinds=+px --fields=+iaS --extra=+q ."
+    " If error 'Format error in tags file' happen when use the above line, the
+    " signatures generated might be too long! Please use the command below:
+    silent! execute "!ctags -R --languages=c,c++ --c++-kinds=+px --fields=+iaS --extra=+q"
   endif
   if(executable('cscope') && has("cscope"))
     " This line may be different depending one the programming language
