@@ -46,6 +46,11 @@ NeoBundle 'Shougo/vimproc.vim', {
 " runtime! macros/matchit.vim: Load the version of matchit.vim that ships with Vim.
 NeoBundle 'tpope/vim-sensible'
 
+" +--------+
+" | Indent |
+" +--------+
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
 " +---------------------+
 " | Syntax Highlighting |
 " +---------------------+
@@ -129,10 +134,10 @@ NeoBundle 'Valloric/YouCompleteMe', {
 " +------------------------+
 " | source code navigation |
 " +------------------------+
-" Tagbar
+" Tagbar(need ctags)
 NeoBundle 'majutsushi/tagbar'
 
-" Cscope
+" Cscope(need cscope)
 NeoBundle 'vim-scripts/cscope.vim'
 
 " +---------+
@@ -183,6 +188,50 @@ set t_Co=256
 color jellybeans
 "color darkmate
 
+" Automatically detect the file's type
+filetype on
+
+" Automatically load the corresponding plugins by file's type
+filetype plugin on
+
+" Intelligent indent by different language
+filetype indent on
+
+" show line number
+set number
+
+" Set no-compatible with vi editor
+set nocompatible
+
+" Commands auto-complete
+set wildmenu
+
+" Highlight cursor row
+set cursorline
+
+" Highligh current column
+set cursorcolumn
+
+" Prompt asking what should do when commands conflict
+set confirm
+
+" Real-time search
+set incsearch
+
+" Highlight search
+set hlsearch
+
+" Searching is not case sensitive
+set ignorecase
+
+" Highlight syntax
+syntax enable
+syntax on
+
+" Allow to use backspace in insert-mode
+" This is set by vim-sensible
+" set backspace=2
+
 " size of a hard tabstop
 " tabstop = sp
 set tabstop=2
@@ -203,17 +252,11 @@ set smarttab
 " expandtab = et
 set expandtab
 
-" show line number
-set number
-
-" Searching is not case sensitive
-set ignorecase
+" Mozilla C++ coding style
+set ts=8 sts=2 et sw=2 tw=80
 
 " Remove all trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Mozilla C++ coding style
-set ts=8 sts=2 et sw=2 tw=80
 
 " =================================
 " ctags and cscope
@@ -302,6 +345,16 @@ nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>
 " =================================
 " Plugins
 " =================================
+" Indent-guides
+" ---------------------------------
+" Enable it once vim start
+"let g:indent_guides_enable_on_vim_startup=1
+" Show indent-guide from nested level #
+let g:indent_guides_start_level=2
+" indent-guide width
+let g:indent_guides_guide_size=1
+" Toggle indent-guides
+nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
 " NERDTree
 " ---------------------------------
