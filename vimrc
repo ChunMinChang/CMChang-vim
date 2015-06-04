@@ -134,6 +134,9 @@ NeoBundle 'Valloric/YouCompleteMe', {
 " +------------------------+
 " | source code navigation |
 " +------------------------+
+" Quickly switch files between .h and .c/.cpp
+NeoBundle 'vim-scripts/a.vim'
+
 " Tagbar(need ctags)
 NeoBundle 'majutsushi/tagbar'
 
@@ -186,7 +189,7 @@ set t_Co=256
 
 " color scheme
 color jellybeans
-"color darkmate
+"color molokai
 
 " Automatically detect the file's type
 filetype on
@@ -227,6 +230,14 @@ set ignorecase
 " Highlight syntax
 syntax enable
 syntax on
+
+" Fold code by indent
+"set foldmethod=indent
+" Fold code by syntax
+set foldmethod=syntax
+
+" Open the folded code when vim start
+set nofoldenable
 
 " Allow to use backspace in insert-mode
 " This is set by vim-sensible
@@ -345,6 +356,14 @@ nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>
 " =================================
 " Plugins
 " =================================
+" a.vim
+" ---------------------------------
+" switch between *.cpp and *.h
+nmap <Leader>ch :A<CR>
+" Show *.cpp or *.h in sub-window
+nmap <Leader>sch :AS<CR>
+
+
 " Indent-guides
 " ---------------------------------
 " Enable it once vim start
