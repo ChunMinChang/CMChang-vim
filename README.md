@@ -11,8 +11,18 @@
   - clang : you can find the lastest version here: http://llvm.org/apt/
     - Remember to modify clang setting in setup.sh if your clang version is different from this
 
-## How to use
-Simply run the following command:
+## How to install
+
+If your OS is __Mac OS X__, then you must use _MacVim_ instead of _vim_ in OS X itself. You need to install _MacVim_ first:
+```bash
+brew install macvim
+```
+then add the following line to your bash file(e.g., ~/.bashrc or ~/.bash_profile)
+```bash
+alias vim='mvim -v'
+```
+
+Next, simply run the following command to install:
 
 If your clang is 3.5:
 ```bash
