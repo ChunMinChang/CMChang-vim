@@ -53,6 +53,7 @@ Otherwise, you should download setup.sh and modify the clang version befroe inst
   ```bash
   $ setup.sh
   ```
+
 ### If your OS is Linux
 After the script running, your vim will be opened and prompt you to install the plugins set by vimrc. You should enter **Y** to start the installing. However, the plugin **YouCompleteMe** will fail to be installed in the vim now. The vim will show the failed-installing message and ask you if this plugin should be removed or not. Please enter **N**. This problem can be fixed by following command after vim finish installing the other plugins:
 
@@ -68,6 +69,18 @@ $ git submodule update --init --recursive
 $ ./install.sh --clang-completer --system-libclang --omnisharp-completer
 ```
 Now, the installing is finished!
+
+### If your OS is Mac OS X
+After the script running, you might get this error:
+```bash
+Vim: Caught deadly signal ABRT
+Vim: Finished.Abort trap: 6
+```
+You can find solution in [Valloric/YouCompleteMe/issues/8](https://github.com/Valloric/YouCompleteMe/issues/8).
+Add the following line to your bash file(e.g., ~/.bashrc or ~/.bash_profile) might fix it:
+```bash
+alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim -v'
+```
 
 
 ## FAQ
