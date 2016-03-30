@@ -134,3 +134,16 @@ set ts=8 sts=2 et sw=2 tw=80
 
 " Remove all trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+
+" =================================
+" Plugins
+" =================================
+
+" YouCompleteMe
+" ---------------------------------
+" This link may be changed in newer YCM versions,
+" so please check this link in YCM github first.
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" Prevent to ask ..Found .../.ycm_extra_conf.py. Load?
+" The default value is 1
+let g:ycm_confirm_extra_conf = 0
