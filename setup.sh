@@ -22,7 +22,8 @@ else
 fi
 
 # Symbollically link ./vimrc to ~/.vimrc
-echo "Symbollically link to ~/.vimrc"
+echo -e "\n  Symbollically link to ~/.vimrc"
+echo "--------------------------------------------------"
 # backup to original vimrc if it exist
 vimrcPath=$HOME/.vimrc
 srcVimrcPath=$(pwd)/vimrc
@@ -38,9 +39,20 @@ if [ -f $vimrcPath ]; then
     echo "remove the old symlink"
     rm $vimrcPath
   fi
+else
+  echo "the ~/.vimrc doesn't exist or symlink of ~/.vimrc is invalid"
 fi
 # link
 ln -s $srcVimrcPath $vimrcPath
+
+echo -e "\n  Copy colors to ~/vimrc/colors"
+echo "--------------------------------------------------"
+colorPath=$HOME/.vim/colors/
+srcColors=$(pwd)/colors/*.vim
+mkdir -p $colorPath
+cp $srcColors $colorPath
+ls -al $colorPath
+
 
 # Install vundle as plugin manager of vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

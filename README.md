@@ -17,4 +17,6 @@ to find ways to fix them.
 
 If your using OS X, you can run ```bash install_YCM.sh``` to install it!
 
-#
+# Colors
+- [w0ng/vim-hybrid](https://github.com/w0ng/vim-hybrid)
+- [nanotech/jellybeans.vim](https://github.com/nanotech/jellybeans.vim)
