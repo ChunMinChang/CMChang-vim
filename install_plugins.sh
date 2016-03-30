@@ -9,8 +9,8 @@ vim +PluginInstall +qall
 # Get the install command
 installCMD=$(GetPackageInstallCommand)
 
-# Install the CMake
-echo -e "\n  Install CMake"
+# Install the CMake for YouCompleteMe
+echo -e "\n  Install CMake for YouCompleteMe"
 echo "--------------------------------------------------"
 if [ $ENV_OSX == $(GetOSEnvironment) ]; then
   $installCMD CMake
@@ -24,6 +24,9 @@ fi
 # Save the current path
 curPath=$(pwd)
 
+# Install YouCompleteMe
+echo -e "\n  Install YouCompleteMe"
+echo "--------------------------------------------------"
 # Compiling YCM with semantic support for all language it provides
 # cd ~/.vim/bundle/YouCompleteMe
 # ./install.py --all
@@ -31,5 +34,12 @@ curPath=$(pwd)
 # Compiling YCM with semantic support for C-family languages:
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
+
+
+# Install the powerline fonts for vim-airline
+echo -e "\n  Install powerline/fonts"
+echo "--------------------------------------------------"
+cd ~/.vim/bundle/fonts/
+./install.sh
 
 cd $curPath
